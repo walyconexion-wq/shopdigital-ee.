@@ -19,7 +19,7 @@ import { Category, Shop } from './types';
 export const COLORS = {
   PRIMARY_BLUE: '#0A224E',
   LOGO_RED: '#FF0000',
-  LOGO_GREEN: '#22C55E', // Tailwind Green 500 equivalent
+  LOGO_GREEN: '#22C55E',
   WHITE: '#FFFFFF',
 };
 

@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useMemo, useRef } from 'react';
-import { View, Shop, Category, ProductOffer } from './types';
+import { View, Shop, Category } from './types';
 import { CATEGORIES, MOCK_SHOPS } from './constants';
 import Logo from './components/Logo';
 import { 
@@ -8,7 +8,6 @@ import {
   MessageCircle, 
   ChevronLeft, 
   MapPin, 
-  Clock, 
   ArrowLeft, 
   Info, 
   BookOpen,
@@ -18,11 +17,10 @@ import {
   Car,
   Lock,
   Save,
-  ImageIcon,
+  Image as ImageIcon,
   Plus,
   Trash2,
-  Camera,
-  List
+  Camera
 } from 'lucide-react';
 
 const App: React.FC = () => {
@@ -190,12 +188,12 @@ const App: React.FC = () => {
               ))}
             </div>
 
-            <div className="mt-16 mb-8 flex justify-center fade-up-item" style={{ animationDelay: '700ms' }}>
+            <div className="mt-16 mb-16 flex justify-center fade-up-item" style={{ animationDelay: '700ms' }}>
               <button
                 onClick={handleShare}
-                className="btn-volume share-btn text-[#0A224E] py-5 px-16 text-[12px] font-black uppercase tracking-[0.2em]"
+                className="btn-volume share-btn text-[#0A224E] py-3.5 px-10 text-[10px] font-black uppercase tracking-[0.2em]"
               >
-                <Share2 size={20} strokeWidth={2.5} />
+                <Share2 size={16} strokeWidth={2.5} />
                 Compartir App
               </button>
             </div>
@@ -270,7 +268,7 @@ const App: React.FC = () => {
         {/* INTERFAZ 3: DETALLE */}
         {currentView === View.DETAIL && selectedShop && (
           <div className="pb-24 animate-in fade-in duration-700">
-            {/* PORTADA ESTIRADA (260px) */}
+            {/* PORTADA ESTIRADA */}
             <div className="relative w-full h-[260px] bg-[#0A224E] overflow-hidden">
               <img src={selectedShop.bannerImage} alt="Banner" className="w-full h-full object-cover opacity-65" />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A224E] via-[#0A224E]/20 to-transparent"></div>
@@ -298,18 +296,21 @@ const App: React.FC = () => {
                 <Lock size={15} strokeWidth={3} />
               </button>
 
-              <div className="absolute inset-0 flex flex-col items-center justify-end pb-8 px-8 text-center">
-                {/* Botón Menú Online */}
-                <button 
-                  onClick={scrollToCatalog}
-                  className="btn-volume px-6 py-3 rounded-[1.2rem] bg-white flex items-center justify-center gap-3 text-[#0A224E] z-40 border-[#0A224E]/15 shadow-xl mb-3 active:scale-95 transition-all"
-                >
-                  <BookOpen size={15} strokeWidth={3} />
-                  <span className="text-[9px] font-[1000] uppercase tracking-[0.3em]">Menú Online</span>
-                </button>
-                
-                <div className="bg-[#22C55E] text-white px-2.5 py-1 rounded-lg text-[7.5px] font-black uppercase tracking-[0.2em] shadow-lg border border-white/20">
-                  {selectedShop.specialty}
+              <div className="absolute inset-0 flex flex-col justify-end pb-6 px-6">
+                <div className="flex items-end justify-between w-full">
+                  {/* Etiqueta Especialidad (A un costado, discreto) */}
+                  <div className="bg-[#22C55E] text-white px-3 py-1.5 rounded-xl text-[7.5px] font-black uppercase tracking-[0.1em] shadow-lg border border-white/20">
+                    {selectedShop.specialty}
+                  </div>
+                  
+                  {/* Botón Menú Online (Discreto y al costado) */}
+                  <button 
+                    onClick={scrollToCatalog}
+                    className="btn-volume px-4 py-2.5 rounded-[1.2rem] bg-white flex items-center justify-center gap-2 text-[#0A224E] z-40 border-[#0A224E]/15 shadow-xl active:scale-95 transition-all"
+                  >
+                    <BookOpen size={14} strokeWidth={3} />
+                    <span className="text-[8.5px] font-[1000] uppercase tracking-[0.15em]">Menú Online</span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -577,11 +578,6 @@ const App: React.FC = () => {
                   <Save size={20} strokeWidth={2.5} />
                   Guardar Cambios
                 </button>
-                <div className="flex gap-1.5 mb-10">
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#0A224E]/10"></div>
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#FF0000]/10"></div>
-                  <div className="w-1.5 h-1.5 rounded-full bg-[#22C55E]/10"></div>
-                </div>
               </div>
             </div>
           </div>

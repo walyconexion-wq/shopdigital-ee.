@@ -4,7 +4,8 @@ import React from 'react';
 export enum View {
   HOME = 'HOME',
   CATEGORY = 'CATEGORY',
-  DETAIL = 'DETAIL'
+  DETAIL = 'DETAIL',
+  EDIT_PANEL = 'EDIT_PANEL'
 }
 
 export interface Category {
@@ -26,6 +27,7 @@ export interface Shop {
   category: string;
   rating: number;
   specialty: string;
+  address: string;
   image: string;
   bannerImage: string;
   offers: ProductOffer[];
